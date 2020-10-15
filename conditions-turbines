@@ -1,0 +1,20 @@
+let allTurbines = prompt('How many turbines total?');
+let turbinesMax = parseInt(prompt('How many turbines on max power?'), 10);
+let turbinesHalf = parseInt(prompt('How many turbines on half power?'), 10);
+let turbinesHalfCount = turbinesMax + turbinesHalf;
+let turbinePower = 2000;
+let sumPower = 0;
+
+for (turbineCounter = 1; turbineCounter <= allTurbines; turbineCounter++) {
+  if (turbineCounter <= turbinesMax) {
+    sumPower += turbinePower;
+    console.log('Turbine number ' + turbineCounter + ' is operating at full speed, generating ' + turbinePower + ' MWh. The total energy generated at the farm is ' + sumPower + ' MWh at the moment.');
+  } else if (turbineCounter <= turbinesHalfCount) {
+    sumPower += turbinePower/2;
+    console.log('Turbine number ' + turbineCounter + ' is operating at half speed, generating 1000 MWh. The total energy generated at the farm is ' + sumPower + ' MWh at the moment.');
+  } else if (turbineCounter <= allTurbines) {
+    console.log('Turbine number ' + turbineCounter + ' is not operational. The total energy generated at the farm is ' + sumPower + ' MWh at the moment.');
+  } else {
+    console.log('Error.');
+  }
+}
